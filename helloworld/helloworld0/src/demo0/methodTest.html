@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>method</title>
+    <script src="../js/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="root">
+      <button @click="increment">{{count}}</button>
+      <button @click="increment1">{{count}}</button>
+
+    </div>
+
+    <script>
+      const vm = Vue.createApp({
+        data(){
+          return{
+            count:1
+          }
+        },
+        methods:{
+          increment(){
+            console.log(this)
+            this.count++
+          },
+          increment1:()=>{
+            console.log(this)
+            // 箭头函数无法访问this
+            this.count++;
+          }
+        }
+      })
+
+      vm.mount("#root")
+    </script>
+
+</body>
+</html>

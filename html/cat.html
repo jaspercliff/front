@@ -1,0 +1,70 @@
+<head>
+  <title>CatPhotoApp</title>
+</head>
+<body>
+<!--文档的主要内容-->
+<main>
+  <h1>CatPhotoApp</h1>
+  <section>
+    <h2>Cat Photos</h2>
+    <p>See more <a target="_blank" href="https://freecatphotoapp.com">cat photos</a> in our gallery.</p>
+    <a href="https://freecatphotoapp.com">
+      <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/relaxing-cat.jpg"
+            alt="A cute orange cat lying on its back.">
+    </a>
+  </section>
+<!--   标签用于表示文档中的一个独立部分或章节。该元素通常用于组织网页的内容，将其分成多个相关的区域-->
+  <section>
+    <h2>Cat Lists</h2>
+    <h3>Things cats love:</h3>
+    <ul>
+      <li>cat nip</li>
+      <li>laser pointers</li>
+      <li>lasagna</li>
+    </ul>
+<!--  用于将相关内容分组 例如图像和标题  -->
+<!--    em 强调 斜体-->
+    <figure>
+      <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/lasagna.jpg" alt="A slice of lasagna on a plate.">
+      <figcaption>Cats <em>love</em> lasagna.</figcaption>
+    </figure>
+
+    <h3>Top 3 things cats hate:</h3>
+    <ol>
+      <li>flea treatment</li>
+      <li>thunder</li>
+      <li>other cats</li>
+    </ol>
+    <figure>
+      <img src="https://cdn.freecodecamp.org/curriculum/cat-photo-app/cats.jpg" alt="Five cats looking around a field.">
+      <figcaption>Cats <strong>hate</strong> other cats.</figcaption>
+<!--      在HTML中，<figcaption> 标签用于为 <figure> 元素添加标题或说明。它通常用于组合图片、图表或其他媒体元素的标题-->
+    </figure>
+  </section>
+  <section>
+    <h2>Cat Form</h2>
+    <form action="https://freecatphotoapp.com/submit-cat-photo">
+<!--      <fieldset> 标签用于将表单内的相关元素分组，常常与 <legend> 标签一起使用来为表单组添加一个标题或说明-->
+      <fieldset>
+        <legend>Is your cat an indoor or outdoor cat?</legend>
+        <label><input id="indoor" type="radio" name="indoor-outdoor" value="indoor" checked> Indoor</label>
+        <label><input id="outdoor" type="radio" name="indoor-outdoor" value="outdoor"> Outdoor</label>
+      </fieldset>
+      <fieldset>
+        <legend>What's your cat's personality?</legend>
+        <input id="loving" type="checkbox" name="personality" value="loving" checked> <label for="loving">Loving</label>
+        <input id="lazy" type="checkbox" name="personality" value="lazy"> <label for="lazy">Lazy</label>
+        <input id="energetic" type="checkbox" name="personality" value="energetic"> <label for="energetic">Energetic</label>
+      </fieldset>
+      <input type="text" name="catphotourl" placeholder="cat photo URL" required>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+</main>
+<footer>
+  <p>
+    No Copyright - <a href="https://www.freecodecamp.org">freeCodeCamp.org</a>
+  </p>
+</footer>
+</body>
+</html>

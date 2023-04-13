@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../js/vue.global.js"></script>
+</head>
+<body>
+  <div id="root">
+    <span>{{length1}}</span>
+    <br>
+    <span>{{fullName}}</span>
+  </div>
+  <script>
+
+    const app = Vue.createApp({
+      mounted(){
+        console.log(this.firstName)
+        this.fullName = "john mike"
+      },
+      data(){
+        return{
+          author:{
+            name:"jasper",
+            hobby:[
+                    "smoke",
+                    "drink",
+            ]
+          },
+            firstName:"jasper",
+            lastName:"cliff"
+        }
+      },
+      // 在模板中使用计算属性的方式和一般的属性并无二致。
+      // Vue 会检测到 this.length1 依赖于 this.author.hobby
+      // 所以当 this.author.hobby 改变时，
+      // 任何依赖于 this.length1 的绑定都将同时更新。
+
+      // 计算属性值会基于其响应式依赖被缓存，
+      // 只有在响应式依赖发生变化时，计算属性才会重新计算并返回新的值。
+      // 这样可以避免在每次使用计算属性时都重新计算其值，提高了性能
+      // 默认是只读的
+      computed:{
+        length1(){
+          return this.author.hobby.length;
+        },
+        fullName:{
+
+          get(){
+            return this.firstName+" "+this.lastName;
+          },
+          set(newValue){
+            [this.firstName,this.lastName] = newValue.split(" ")
+          }
+        }
+      }
+    })
+
+
+    app.mount("#root")
+
+  </script>
+</body>
+</html>
