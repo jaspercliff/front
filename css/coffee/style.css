@@ -1,0 +1,101 @@
+body {
+    background-image: url(https://cdn.freecodecamp.org/curriculum/css-cafe/beans.jpg);
+    font-family: sans-serif;
+    /*sans-serif 字体没有在字母的末端添加额外的装饰线，所以看起来更加简洁和现代*/
+    padding: 20px;
+/*    四个都是padding 20px*/
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+.established {
+    font-style: italic;
+}
+
+h1, h2, p {
+    text-align: center;
+}
+
+.menu {
+    width: 80%;
+    background-color: burlywood;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    max-width: 500px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+}
+
+.bottom-line {
+    margin-top: 25px;
+}
+
+h1, h2 {
+    font-family: Impact, serif;
+}
+
+.item p {
+    /*display: inline-block 是一种 CSS 属性值，通常用于设置元素的显示模式（display mode）。
+    它结合了 display: inline 和 display: block 两种属性的特点，
+    使元素既具有块级元素的特点（如可以设置宽度、高度、内外边距等），
+    又具有行内元素的特点（如可以和其他行内元素放在一行中）。*/
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.flavor, .dessert {
+    text-align: left;
+    width: 75%;
+}
+
+.price {
+    text-align: right;
+    width: 25%;
+}
+
+/* FOOTER */
+
+footer {
+    font-size: 14px;
+}
+
+.address {
+    margin-bottom: 5px;
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+a:hover {
+    color: brown;
+}
+
+a:active {
+    color: brown;
+}
