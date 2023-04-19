@@ -9,6 +9,12 @@ console.log(a,b,c)
 const obj = {name:'jasper',age:21}
 const {name,age} = obj
 console.log(name,age)
+
+
+const obj = {name:"jasper",age:21}
+const{name:hh,age}=obj;
+console.log(hh)
+console.log(age)
 // specify the default value for the variable
 const arr1 = [1,2]
 const [d,e,f=5]=arr1
@@ -26,3 +32,5 @@ console.log(a1,rest)
 const obj3 = {name2:'jasper',age:21,gender:'female'}
 const {name2,...rest1} = obj3
 console.log(name2,rest1)
+
+

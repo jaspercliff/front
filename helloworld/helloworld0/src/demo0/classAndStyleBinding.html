@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .test{
+            font-style: italic;
+        }
+        .isActive{
+            color: green;
+        }
+        .isDanger{
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div  id="root" >
+        <p :style="{ color: color}"> Lorem ipsum dolor sit amet.</p>
+        {{name}}
+<!-- isActive会一直存在 但是isDanger只会在isDanger为true时才会显示样式       -->
+        <p :class="{isActive,isDanger:isDanger}">Lorem ipsum dolor sit amet.</p>
+
+    </div>
+    <script>
+        const app = Vue.createApp({
+            data(){
+                return{
+                    color: "red",
+                    name: "jasper",
+                    isActive: "isActive",
+                    isDanger: true
+                }
+            }
+        })
+        app.mount("#root")
+
+    </script>
+</body>
+</html>

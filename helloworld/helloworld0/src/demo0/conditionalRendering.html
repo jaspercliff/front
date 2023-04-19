@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+  <div id="root">
+      <button @click="awesome= !awesome">toggle</button>
+
+      <h1 v-if="awesome" :style="{color:color}" >awesome vue</h1>
+      <h1 v-else>Oh no!!!</h1>
+    <hr style="color: red">
+    <div v-if="type === 'A'"> A</div>
+    <div v-else-if="type==='B'"> this is fucking B</div>
+    <div v-else-if="type==='C'"> this is fucking B</div>
+    <div v-else> not fucking A B C</div>
+    <hr style="color: red">
+    <div v-show="show">this is v-show</div>
+<!--    v-if是根据表达式的值来动态地创建或销毁元素，
+如果表达式的值为false，则对应的元素将被销毁，不再占用
+页面资源。而v-show只是通过CSS的display属性来控制元素
+的显示与隐藏，如果表达式的值为false，则对应的元素会隐藏，
+但并未被销毁，仍占用页面资源。
+
+v-if具有更高的切换开销，
+因为它会在元素的创建和销毁过程中涉及到大量的DOM操作，
+所以适用于不经常切换的元素。
+而v-show则是在元素的display属性上进行操作，所以切换的开销很小，适用于频繁切换的元素。
+
+综上所述，如果需要经常切换元素的显示与隐藏
+，建议使用v-show；如果元素不需要频繁切换或在
+一开始时就确定是否需要显示，建议使用v-if-->
+  </div>
+  <script>
+    const app = Vue.createApp({
+      data(){
+        return{
+          awesome:true,
+          color: "red",
+          type: "D",
+          show: true
+        }
+      }
+    })
+    app.mount("#root")
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list rendering</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="root">
+    <li v-for="(item,index) in items">
+      {{index}}----- {{item}}
+    </li>
+
+      <hr style="color:red;">
+      <li v-for="{message} of items">
+        {{message}}
+      </li>
+      <hr>
+      v-for for object
+      <li v-for="(value,key,index) in myObj">
+       {{index}}---- {{key}}--{{value}}
+      </li>
+      <hr style="color: red">
+      <li v-for="(n,index) in 10">{{index}}--{{n}}</li>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data(){
+          return{
+            items:[{message:"jasper"},{message: "handsome"}],
+            myObj:{
+              name:"cliff",
+              age:22,
+              hobby:"smoke"
+            }
+          }
+        }
+      })
+      app.mount("#root")
+    </script>
+</body>
+</html>
