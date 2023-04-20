@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    在Web开发中，document是一个JavaScript对象，代表当前的HTML文档对象模型（DOM）。
+它提供了许多方法和属性，允许开发人员通过JavaScript来操作页面的内容、结构和样式。-->
+<!--    querySelector()是一个DOM方法，它允许开发人员使用CSS选择器在文档中查找元素。
+它返回匹配指定选择器的第一个元素，如果找不到则返回null-->
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+          unidirectional data bingding：<input type="text " v-bind:value="name">
+            <br>two-way data bingding：<input type="text " v-model="name">
+<!--            unidirectional 数据只能由data留向页面-->
+<!--            two-way data改了 输入框也改 输入框改了 data也改了-->
+<!--            v-model 只能应用于form元素-->
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+            name:"jasper"
+            }
+        }
+    })
+    console.log(app)
+    app.mount("#root")
+</script>
+</body>
+</html>

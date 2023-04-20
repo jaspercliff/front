@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    vue的数据代理通过这实现的
+为每个添加到vm的属性 都指定一个getter 和setter
+然后去操作属性
+-->
+</head>
+<body>
+    <script>
+        let num = 20; //data proxy
+      let person = {
+        name: "jasper",
+        hobby: "smoke",
+
+        // age: 18
+      }
+      // The Object class represents one of JavaScript's data types .
+      // It is used to store various keyed collections and more complex entities
+      Object.defineProperty(person,'age',{
+        //value:18,
+        enumerable:true, //whether the control property can be enumerated
+        //writable:true, //whether the control property can be writable
+        configurable:true, ////whether the control property can be deleted
+          // when a person read person.age this get function(getter) will be invoked
+          // and the return value is person.age
+          get(){
+              console.log("a person read person.age")
+            return num;
+          },
+          // when a person modify person.age this get function(getter) will be invoked
+          set(value){
+              console.log("a person modify person.age value=",value)
+              num=value
+          }
+      })
+      console.log(person)
+
+      // for (const personKey in person) {
+      //   console.log('@',personKey)
+      // }
+      for (const personKey in person) {
+        console.log('@',person[personKey])
+      }
+    </script>
+</body>
+</html>
