@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Import Vue 3 -->
+    <script src="//unpkg.com/vue@3"></script>
+</head>
+<template>
+    <el-button plain @click="open1"> Success </el-button>
+    <el-button plain @click="open2"> Warning </el-button>
+    <el-button plain @click="open3"> Info </el-button>
+    <el-button plain @click="open4"> Error </el-button>
+</template>
+
+<script lang="ts" setup>
+
+
+</script>
+
+<body>
+<div id="root">
+    <form @submit.prevent="sub">
+        <label for="username"> username：</label>
+        <input id="username" type="text" v-model.trim="userInfo.username"> <br> <br>
+        <label for="password"> username：</label>
+        <input id="password" type="password" v-model="userInfo.password"> <br> <br>
+        age:<input type="number" v-model.number="userInfo.age"> <br> <br>
+        <label>
+<!--            必须写value值 否则vue绑定为空 checkbox也是-->
+            sex:
+            <input name="sex" type="radio" value="male" v-model="userInfo.sex">
+        </label> man
+        <label>
+            <input name="sex" type="radio" value="female" v-model="userInfo.sex">
+        </label> women
+        <br> <br>
+        <fieldset>
+            <legend>this is your hobby</legend>
+            <label>
+                <input type="checkbox"  v-model="userInfo.hobby"  value="smoke">
+                smoke
+            </label>
+            <label>
+                <input type="checkbox" v-model="userInfo.hobby" value="drink">
+                drink
+            </label>
+            <label>
+                <input type="checkbox"  v-model="userInfo.hobby" value="fight">
+                fight
+            </label>
+        </fieldset>
+        <br> <br>
+        <label>
+            所属校区
+            <select v-model="userInfo.city">
+                <option>please choose you school</option>
+                <option value="xian">西安</option>
+                <option value="yulin">榆林</option>
+                <option value="hangzhou">杭州</option>
+            </select>
+        </label>
+        <br> <br>
+        other information: <br>
+        <label for="info"></label><textarea name="info" id="info" cols="30" rows="10" v-model.lazy="userInfo.other"></textarea> <br> <br>
+        <input type="checkbox" name="" id="" v-model="userInfo.agree">阅读并接收用户协议：<a href="4399.com">《user must read》</a>
+        <br> <br>
+        <input type="submit">
+
+    </form>
+</div>
+
+<script type="module">
+    const app = Vue.createApp({
+        data() {
+            return {
+                userInfo:{
+                    username: '',
+                    password: '',
+                    sex:'female',
+                    hobby:[],
+                    city:'',
+                    other:'',
+                    agree:'',
+                    age:''
+                }
+            }
+        },
+        computed: {},
+        methods: {
+            sub(){
+                if(this.userInfo.agree!==true){
+                    alert("please read the fucking read agreement and agree")
+                }
+                // The JSON.stringify() method converts a JavaScript object or value to a JSON string
+                console.log(JSON.stringify(this.userInfo))
+            }
+        }
+
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>

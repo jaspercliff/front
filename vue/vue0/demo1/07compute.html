@@ -12,6 +12,8 @@
     <span>{{fullName}}</span>
   </div>
   <script>
+// 属性不存在 要通过已有的属性计算得来
+// 原理 底层借用了Object.defineProperty
 
     const app = Vue.createApp({
       mounted(){

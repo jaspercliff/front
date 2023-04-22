@@ -3,7 +3,7 @@
  */
 // for arr
 const arr = [1,2,3]
-const [a,b,c] = arr
+let [a,b,c] = arr
 console.log(a,b,c)
 //for object
 const obj = {name:'jasper',age:21}

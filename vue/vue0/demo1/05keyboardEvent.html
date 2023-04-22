@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+          <h2>welcome to study fucking vue</h2>
+          <input type="text" placeholder="press enter on keyboard to promote input "
+          @keyup="showInfo">
+            <br>
+            <input type="text" placeholder="press enter on keyboard to promote input "
+                   @keyup.enter.alt="showInfo"> <br>
+<!--            你可以使用以下系统按键修饰符来触发鼠标或键盘事件监听器，只有当按键被按下时才会触发。
+.ctrl
+.alt
+.shift
+.meta
+keyup 按下修饰键的同时在按下其他键 然后在放开才会被触发
+keydown 正常触发
+-->
+            <input type="text" placeholder="press enter on keyboard to promote input "
+                   @click.ctrl="showInfo">
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+
+            }
+        },
+      methods:{
+        showInfo(e){
+          // if(e.keyCode!==13){
+          //   return;
+          // }
+          // keyCode of enter is 13
+          console.log(e.key,e.keyCode)
+          console.log(e.target.value)
+        }
+      }
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>

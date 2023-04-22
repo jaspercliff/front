@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+            <h2><span>current n :{{n}}</span></h2>
+          <h2>magnify 10 times:<span v-big="n"></span></h2>
+          <button @click="n++">click me make n++</button>
+          <hr>
+<!--          autofocus-->
+          <input type="text" v-fbind:value="n" >
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+            n:1
+            }
+        },
+        computed:{
+
+        },
+        mounted() {
+            console.log("the component is now mounted")
+        },
+        methods:{
+
+        },
+        directives:{
+          // 指令于元素绑定时会被调用
+          // 指令所在的模板被重新解析的时候
+          big(element,binding){
+            console.log(element,binding)
+            element.innerText = binding.value * 10
+          },
+          fbind(element,binding){
+            element.value = binding.value
+            element.focus();
+          }
+        }
+
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>

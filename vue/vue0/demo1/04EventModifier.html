@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+      *{
+          margin-top: 20px;
+      }
+    .demo1{
+        height: 50px;
+        background-color: green;
+    }
+  </style>
+</head>
+<body>
+        <div id="root">
+          <a href="www.baidu.com" @click="showInfo($event)">点我提示信息</a> <br>
+<!--            阻止默认的事件行为-->
+          <a href="www.baidu.com" @click.prevent="showInfo1()">点我提示信息</a> <br>
+<!--            阻止事件冒泡 event.stopPropagation()-->
+          <div class="demo1" @click="showInfo2">
+                <button @click.stop="showInfo2">dbutton</button>
+          </div>
+<!--        事件只触发一次    -->
+            <button @click.once="showInfo2">dbutton</button>
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+
+            }
+        },
+      methods:{
+          showInfo(e){
+            e.preventDefault();
+            alert("hahaha")
+          },
+        showInfo1(){
+          alert("hahaha!!!")
+        },
+          showInfo2(){
+              alert("hahaha!!!")
+          }
+      }
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>

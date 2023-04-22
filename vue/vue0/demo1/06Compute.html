@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+          firstName:<input type="text" v-model="firstName"><br>
+          LastName: <input type="text" v-model="lastName"> <br>
+          <span>{{fullName}}</span>
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+              firstName: 'jasper',
+              lastName: 'cliff',
+            }
+        },
+      // 模板中写太多逻辑，让模板变得复杂难以维护 使用计算属性 可以重用 好修改
+      // 调用一个函数也会获得和计算属性相同的结果
+      // 计算属性值会基于其响应式依赖被缓存。一个计算属性仅会在其响应式依赖更新时才重新计算
+      computed:{
+          fullName(){
+              return this.firstName + this.lastName;
+          }
+      },
+        methods:{
+
+        }
+    })
+    app.mount("#root")
+</script>
+</body>
+</html>
