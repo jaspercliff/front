@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h2>local storage</h2>
+    <button onclick="saveData()">click me to save </button>
+    <button onclick="getData()">click me to get </button>
+    <button onclick="delData()">click me to del </button>
+    <button onclick="clearData()">click me to clear </button>
+<!--web storage-->
+<!--sessionStorage-->
+<!--LocalStorage-->
+
+</body>
+<script>
+    let p = {name:'jasper',age:20}
+    function saveData(){
+        sessionStorage.setItem('msg','hello');
+        sessionStorage.setItem('msg2',666);
+        sessionStorage.setItem('person',JSON.stringify(p))
+    }
+    function getData(){
+        console.log(sessionStorage.getItem('msg'));
+        console.log(JSON.parse(sessionStorage.getItem('person')));
+    }
+    function delData(){
+        sessionStorage.removeItem('msg2');
+    }
+    function clearData(){
+        sessionStorage.clear();
+    }
+</script>
+</html>
