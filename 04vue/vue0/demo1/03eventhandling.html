@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+        <div id="root">
+<!--            使用 $event 参数可以让我们在方法中访问到事件对象-->
+            <button v-on:click="say('hello',$event)">say hello</button>
+            <br>
+          <button @click="say1('baybay')">say baybay</button>
+            <br>
+        <button @click="say2('arrow')">say arrow</button>
+
+        </div>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return{
+
+            }
+        },
+        // methods 中配置的函数都是被Vue所管理的函数 this指向的是Proxy
+        // arrow method this是Window
+        methods:{
+          say(message,event){
+              console.log(event.target.innerText)
+              console.log(message)
+
+          },
+            say1(message){
+                console.log(message)
+                console.log(this) //Proxy
+            //     在 Vue.03js 中，数据是通过使用 Proxy 对象来实现响应式的。
+            //     响应式（响应式是指当数据发生变化时，程序会自动更新视图以反映这些变化的能力。
+                //     在 Vue.03js 中，响应式是实现数据驱动视图的核心特性）
+                //     在 Vue 实例中，数据对象会被 Proxy 对象包装，
+                //     这个 Proxy 对象会拦截对数据对象的访问和修改操作，并通知 Vue 去更新视图。
+                //     这意味着，当数据发生变化时，Proxy 对象会自动更新视图，从而使开发者无需手动去更新视图。
+            },
+            say2:(message)=>{
+                console.log(message)
+                console.log(this)//Window
+            }
+        }
+    })
+    console.log(app)
+    app.mount("#root")
+</script>
+</body>
+</html>
