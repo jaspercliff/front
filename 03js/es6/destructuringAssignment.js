@@ -2,13 +2,13 @@
  * 解构赋值
  */
 // for arr
-const arr = [1,2,3]
-let [a,b,c] = arr
-console.log(a,b,c)
-//for object
-const obj = {name:'jasper',age:21}
-const {name,age} = obj
-console.log(name,age)
+// const arr = [1,2,3]
+// let [a,b,c] = arr
+// console.log(a,b,c)
+// //for object
+// const obj = {name:'jasper',age:21}
+// const {name,age} = obj
+// console.log(name,age)
 
 
 const obj = {name:"jasper",age:21}
